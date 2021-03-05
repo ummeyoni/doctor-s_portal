@@ -1,26 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import doctorSm from "../../../images/doctorSm.png";
 import Doctor from "../Doctor/Doctor";
 
-const doctorsData = [
-  {
-    img: doctorSm,
-    name: " Dr.Caudi",
-    contact: "0987654321"
-  },
-  {
-    img: doctorSm,
-    name: " Dr.Caudi",
-    contact: "0987654321"
-  },
-  {
-    img: doctorSm,
-    name: " Dr.Caudi",
-    contact: "0987654321"
-  }
-];
-
 const Doctors = () => {
+  const [doctorsData, setDoctorsData] = useState([]);
+  console.log(doctorsData);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/doctors")
+      .then(res => res.json())
+      .then(data => setDoctorsData(data));
+  }, []);
   return (
     <section>
       <h6 className="text-center mb-3" style={{ color: "#1cc7c1" }}>

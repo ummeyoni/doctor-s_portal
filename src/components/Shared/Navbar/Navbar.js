@@ -18,36 +18,39 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link mr-5" href="Home">
+            <a className="nav-link mr-5" href="http://localhost:3000/">
               Home
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link mr-5" href="About">
-              About
+            <a className="nav-link mr-5" href="http://localhost:3000/Login">
+              Login
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link mr-5" href="Dental Services">
-              Dental Services
+            <a
+              className="nav-link mr-5"
+              href="http://localhost:3000/dashboard/appointment"
+            >
+              Dasboard
             </a>
           </li>
           <li className="nav-item">
             <a
               className="nav-link mr-5 "
-              href="Reviews"
+              href="http://localhost:3000/dashboard/allPatients"
               style={{ color: "#FFFFFF" }}
             >
-              Reviews
+              All Patients
             </a>
           </li>
           <li className="nav-item">
             <a
               className="nav-link mr-5 "
-              href="Blogs"
+              href="http://localhost:3000/adddoctor"
               style={{ color: "#FFFFFF" }}
             >
-              Blogs
+              Add Doctors
             </a>
           </li>
           <li className="nav-item">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import chair from "../../../images/chair.jpg";
 
 const HeaderMain = () => {
@@ -13,7 +14,9 @@ const HeaderMain = () => {
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s.
         </p>
-        <button className="btn btn-primary">GET APPONTMENT</button>
+        <Link to="/appointment" className="btn btn-primary">
+          GET APPOINTMENT
+        </Link>
       </div>
       <div className="col-md-6">
         <img src={chair} alt="" className="img-fluid" />
