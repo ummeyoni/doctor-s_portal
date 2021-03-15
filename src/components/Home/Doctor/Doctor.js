@@ -16,7 +16,7 @@ const Doctor = props => {
           <img
             style={{ height: "200px" }}
             className="img-fluid mb-3"
-            src={`https://localhost:5000/${props.doctor.img}`}
+            src={`https://stark-temple-71384.herokuapp.com/${props.doctor.img}`}
             alt=""
           />
         )}

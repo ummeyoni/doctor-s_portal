@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -18,49 +19,34 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link mr-5" href="http://localhost:3000/">
+            <Link className="nav-link mr-5" to="/">
               Home
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link mr-5" href="http://localhost:3000/Login">
+          <li className="nav-item active">
+            <Link className="nav-link mr-5" to="/login">
               Login
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link mr-5"
-              href="http://localhost:3000/dashboard/appointment"
-            >
-              Dasboard
-            </a>
+          <li className="nav-item active">
+            <Link className="nav-link mr-5" to="/dashboard/appointment">
+              Dashboard
+            </Link>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link mr-5 "
-              href="http://localhost:3000/dashboard/allPatients"
-              style={{ color: "#FFFFFF" }}
-            >
+          <li className="nav-item active">
+            <Link className="nav-link mr-5" to="/dashboard/allPatients">
               All Patients
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link mr-5 "
-              href="http://localhost:3000/adddoctor"
-              style={{ color: "#FFFFFF" }}
-            >
+          <li className="nav-item active">
+            <Link className="nav-link mr-5" to="/addDoctor">
               Add Doctors
-            </a>
+            </Link>
           </li>
-          <li className="nav-item">
-            <a
-              className="nav-link mr-5 "
-              href="Contact Us"
-              style={{ color: "#FFFFFF" }}
-            >
+          <li className="nav-item active">
+            <Link className="nav-link mr-5" to="#">
               Contact Us
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

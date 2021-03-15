@@ -7,7 +7,7 @@ const Doctors = () => {
   console.log(doctorsData);
 
   useEffect(() => {
-    fetch("http://localhost:5000/doctors")
+    fetch("https://stark-temple-71384.herokuapp.com/doctors")
       .then(res => res.json())
       .then(data => setDoctorsData(data));
   }, []);
