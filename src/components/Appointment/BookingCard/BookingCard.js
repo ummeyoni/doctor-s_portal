@@ -16,7 +16,10 @@ const BookingCard = ({ booking, date }) => {
   const [check, setCheck] = useState([]);
   console.log(check.length);
   useEffect(() => {
-    fetch("https://stark-temple-71384.herokuapp.com/appointments?service=" + booking.subject)
+    fetch(
+      "https://stark-temple-71384.herokuapp.com/appointments?service=" +
+        booking.subject
+    )
       .then(res => res.json())
       .then(data => setCheck(data));
   }, []);
@@ -33,9 +36,16 @@ const BookingCard = ({ booking, date }) => {
   // setIsClicked(data)
   // },[check.length]);
 
+  // const newdate = new Date();
+  // let isvalid = false;
+  // if ( date.getDate() === newdate.getDate() ) {
+  //    isvalid = true
+  // }else{
+  //    isvalid = date.getTime() < newdate.getTime();
+  // }
+
   const newdate = new Date();
-  const isvalid = date.toDateString() > newdate.toDateString();
-  console.log(isvalid);
+  const isvalid = date.getDate() < newdate.getDate();
 
   return (
     <div className="col-md-4 ">
