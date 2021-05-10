@@ -12,12 +12,14 @@ const containerStyle = {
 const Dashboard = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [appointments, setAppointments] = useState([]);
+  console.log(appointments);
 
   const handleDateChange = date => {
     setSelectedDate(date);
   };
 
   useEffect(() => {
+    // https://stark-temple-71384.herokuapp.com
     fetch("https://stark-temple-71384.herokuapp.com/appointmentsByDate", {
       method: "POST",
       headers: { "content-type": "application/json" },

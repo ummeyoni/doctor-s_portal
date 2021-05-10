@@ -109,7 +109,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           <small>ON {date.toDateString()}</small>
         </p>
         <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
+        <div className="form-group">
             <input
               type="text"
               ref={register({ required: true })}
@@ -123,7 +123,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               ref={register({ required: true })}
               name="phone"
               placeholder="Phone Number"
@@ -135,7 +135,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           </div>
           <div className="form-group">
             <input
-              type="text"
+              type="email"
               ref={register({ required: true })}
               name="email"
               placeholder="Email"
@@ -165,14 +165,14 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             </div>
             <div className="col-4">
               <input
-                ref={register({ required: true })}
+                ref={register({required: true, min: 0, max: 120 })}
                 className="form-control"
                 name="age"
                 placeholder="Your Age"
                 type="number"
               />
               {errors.age && (
-                <span className="text-danger">This field is required</span>
+                <span className="text-danger">please input up to 0-120</span>
               )}
             </div>
             <div className="col-4">

@@ -4,9 +4,10 @@ import Sidebar from "../../Dashboard/Sidebar/Sidebar";
 
 const AllPatients = () => {
   const [appointments, setAppointments] = useState([]);
+  console.log(appointments);
 
   useEffect(() => {
-    fetch("https://stark-temple-71384.herokuapp.com/appointments")
+    fetch("https://stark-temple-71384.herokuapp.com/allAppointments")
       .then(res => res.json())
       .then(data => setAppointments(data));
   }, []);
