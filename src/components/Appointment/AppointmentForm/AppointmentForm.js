@@ -100,7 +100,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
   const handleCheckData = e => {
     const email = e.target.value;
     console.log(status);
-    fetch("https://stark-temple-71384.herokuapp.com/emailCheck?email=${email}")
+    fetch(`https://stark-temple-71384.herokuapp.com/emailCheck?email=${email}`)
       .then(res => res.json())
       .then(data => {
         if (data.length > 0) {
