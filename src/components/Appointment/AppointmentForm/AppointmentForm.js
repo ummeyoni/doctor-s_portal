@@ -60,7 +60,6 @@ Modal.setAppElement("#root");
 const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
   // my implement code
   const [check, setCheck] = useState([]);
-  console.log(check.length);
   useEffect(() => {
     fetch(
       "https://stark-temple-71384.herokuapp.com/appointments?service=" +
@@ -69,7 +68,6 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
       .then(res => res.json())
       .then(data => setCheck(data));
   }, []);
-
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = data => {
     data.service = appointmentOn;
@@ -94,6 +92,25 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
       closeModal();
     }
   };
+
+  // implement email checking system
+
+  const [status, setStatus] = useState(false);
+
+  const handleCheckData = e => {
+    const email = e.target.value;
+    console.log(status);
+    fetch("https://stark-temple-71384.herokuapp.com/emailCheck?email=${email}")
+      .then(res => res.json())
+      .then(data => {
+        if (data.length > 0) {
+          alert("Email already used");
+          setStatus(true);
+        } else {
+          setStatus(false);
+        }
+      });
+  };
   return (
     <div>
       <Modal
@@ -109,7 +126,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           <small>ON {date.toDateString()}</small>
         </p>
         <form className="p-5" onSubmit={handleSubmit(onSubmit)}>
-        <div className="form-group">
+          <div className="form-group">
             <input
               type="text"
               ref={register({ required: true })}
@@ -135,6 +152,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
           </div>
           <div className="form-group">
             <input
+              onBlur={handleCheckData}
               type="email"
               ref={register({ required: true })}
               name="email"
@@ -165,7 +183,7 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             </div>
             <div className="col-4">
               <input
-                ref={register({required: true, min: 0, max: 120 })}
+                ref={register({ required: true, min: 0, max: 120 })}
                 className="form-control"
                 name="age"
                 placeholder="Your Age"
@@ -177,27 +195,20 @@ const AppointmentForm = ({ modalIsOpen, closeModal, appointmentOn, date }) => {
             </div>
             <div className="col-4">
               <input
-                ref={register({ required: true })}
+                ref={register({ required: true, min: 2, max: 120 })}
                 className="form-control"
                 name="weight"
                 placeholder="Weight"
                 type="number"
               />
               {errors.weight && (
-                <span className="text-danger">This field is required</span>
+                <span className="text-danger">please input up to 2-120</span>
               )}
             </div>
           </div>
 
           <div className="form-group text-right">
-            <button
-              type="submit"
-              style={{
-                backgroundColor: "#1cc7c1",
-                color: "white",
-                border: "none"
-              }}
-            >
+            <button type="submit" disabled={status} className="btn btn-primary">
               Send
             </button>
           </div>
